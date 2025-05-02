@@ -22,6 +22,7 @@ public class Note extends Auditable{
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
+    @Lob
     private String content;
 
 

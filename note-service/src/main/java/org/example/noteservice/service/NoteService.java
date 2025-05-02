@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.noteservice.domain.Note;
 import org.example.noteservice.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,9 +35,9 @@ public class NoteService {
      *
      * Получение заметки по id.
      */
-    public Optional<Note> findById(Long id) {
+    public ResponseEntity<Note> findById(Long id) {
         log.info("Find note by id: {}", id);
-        return noteRepository.findById(id);
+        return noteServiceClient.getNote(id);
     }
 
     /**
